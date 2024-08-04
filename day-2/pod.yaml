@@ -1,17 +1,21 @@
 apiVersion: v1
-kind: Podkubectl 
+kind: Pod
 metadata:
   creationTimestamp: null
   labels:
-    run: giropops
-  name: giropops-2
+    run: girus
+    service: webserver
+  name: girus #nome do pod
 spec:
   containers:
   - image: nginx
-    name: giropops-2
-    ports:
-    - containerPort: 80
+    name: nginx
     resources: {}
+  - image: busybox
+    name: busybox
+    args:
+    - sleep
+    - "600"
   dnsPolicy: ClusterFirst
   restartPolicy: Always
 status: {}
